@@ -9,7 +9,7 @@ import com.haxepunk.HXP;
  * @author NateAGeek
  */
 
-class Main extends Engine 
+class Main extends Engine
 {
 
 	public static inline var ScreenWidth:Int = 640;
@@ -20,22 +20,15 @@ class Main extends Engine
 
 	function new()
 	{
-		super(ScreenWidth, ScreenHeight, FrameRate, false, RenderMode.BUFFER);	
+		super(ScreenWidth, ScreenHeight, FrameRate, false, RenderMode.BUFFER);
 	}
 
 	override public function init()
 	{
-	#if debug
-		#if flash
-			if (flash.system.Capabilities.isDebugger)
-		#end
-			{
-				HXP.console.enable();
-			}
-	#end
+		HXP.console.enable();
 		HXP.screen.color = ClearColor;
 		HXP.screen.scale = 1;
-		HXP.scene = new Intro();
+		HXP.scene = new Game();
 	}
 
 	public static function main()
